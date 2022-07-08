@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken"
+import { tokenVerificationErrors } from "../utils/tokenManager.js";
 //metodo de prueba para hacer los 4 metodos del CRUD
 export const requireToken = (req, res, next) =>{
 
@@ -18,17 +19,8 @@ export const requireToken = (req, res, next) =>{
 
     } catch (error) {
        console.log(error);
-
-       const TokenVerificationErrors = {
-        "invalid signature": "la firma del JWT no es valida",
-        "jwt expired": "JWT expirado",
-        "invalid token": "Token no valido",
-        "No Bearer": "Utiliza formato Bearer",
-        "jwt malformed": "JWT formato no valido",
-       }
-
        return res
        .status(401)
-       .send({ error: TokenVerificationErrors[error.message] });
+       .send({ error: tokenVerificationErrors[error.message] });
     }
 }

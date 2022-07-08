@@ -41,4 +41,4 @@ userSchema.methods.comparePassword = async function( candidatePassword){
 };
 
 
-export const User = model('User', userSchema);
+export const User = model("User", userSchema);
