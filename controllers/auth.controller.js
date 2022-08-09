@@ -10,8 +10,7 @@ export const register = async (req, res) =>{
 
         user = new User({email, password});
         await user.save();
-
-         //generar el token JWT
+                 //generar el token JWT
         const {token, expiresIn} = generateToken(user.id);
        // generateRefreshToken(user.id, res);
         generateRefreshToken (user.id, res);

@@ -57,3 +57,16 @@ export const bodyRegisterValidator = [
         validationResultExpress
     ];
     
+    export const paramDirectorioValidator = [
+        param("id", "Formato no valido (expressValidator)").trim().notEmpty().escape(),validationResultExpress
+    ];
+
+    export const bodyDirectorioRegisterValidator=[
+        body('id_Usuario', "Formato incorrecto")
+            .trim()
+            .isEmail()
+            .normalizeEmail(),
+        body( 'telefono', "10 digitos").trim().isLength({ min: 10}),
+        validationResultExpress
+    ];
+    
